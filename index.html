@@ -1,106 +1,202 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NutMix - Tienda de Frutos Secos</title>
+    <title>NutMix - Premium Nuts & Dried Fruits</title>
     <style>
+        :root {
+            --main: #8b5e34;
+            --accent: #d4a373;
+            --bg: #f5f3ee;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            background: #f7f3e9;
+            background: var(--bg);
+            overflow-x: hidden;
+            animation: fadeIn 1.2s ease;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         header {
-            background: #8b5e34;
+            background: linear-gradient(135deg, var(--main), #704622);
             color: white;
-            padding: 25px;
+            padding: 50px 20px;
             text-align: center;
+            animation: slideDown 1s ease;
         }
+
+        @keyframes slideDown {
+            from { transform: translateY(-40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
         nav {
-            background: #d4b59e;
-            padding: 10px;
+            background: var(--accent);
+            padding: 12px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
         }
+
         nav a {
-            margin: 0 15px;
+            color: white;
             text-decoration: none;
+            margin: 0 20px;
             font-weight: bold;
-            color: #5a3d24;
+            transition: 0.3s;
         }
-        .contenedor {
-            width: 80%;
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
             margin: auto;
-            padding: 25px;
+            padding: 30px 0;
+            animation: fadeIn 1.3s ease;
         }
-        .producto {
-            background: white;
-            padding: 20px;
+
+        .hero {
+            text-align: center;
             margin: 20px 0;
-            border-radius: 10px;
-            border: 1px solid #c8b8a5;
         }
-        h2 {
-            color: #8b5e34;
+
+        .hero img {
+            width: 70%;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transform: scale(0.95);
+            transition: 0.6s;
         }
+
+        .hero img:hover {
+            transform: scale(1.02);
+        }
+
+        .section-title {
+            color: var(--main);
+            font-size: 28px;
+            margin-top: 50px;
+            border-left: 6px solid var(--main);
+            padding-left: 12px;
+            animation: slideLeft 0.8s ease;
+        }
+
+        @keyframes slideLeft {
+            from { transform: translateX(-40px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .products {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 30%;
+            padding: 18px;
+            margin-top: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardPop 0.8s ease forwards;
+        }
+
+        @keyframes cardPop {
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 12px;
+            transition: 0.4s;
+        }
+
+        .card img:hover {
+            transform: scale(1.05);
+        }
+
         footer {
-            background: #8b5e34;
+            background: var(--main);
             color: white;
             text-align: center;
-            padding: 15px;
-            margin-top: 30px;
+            padding: 25px;
+            margin-top: 50px;
+            animation: fadeIn 1s ease;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>NutMix – Tienda de Frutos Secos</h1>
+    <h1>NutMix</h1>
+    <p>Premium quality nuts and dried fruits</p>
 </header>
 
 <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#productos">Productos</a>
-    <a href="#nosotros">Sobre Nosotros</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
 </nav>
 
-<div class="contenedor" id="inicio">
-    <h2>Bienvenidos</h2>
-    <p>En NutMix ofrecemos frutos secos naturales, frescos y de la mejor calidad para una alimentación saludable.</p>
-</div>
+<div class="container">
 
-<div class="contenedor" id="productos">
-    <h2>Productos</h2>
-
-    <div class="producto">
-        <h3>Almendras</h3>
-        <p>Ideales para snacks y llenas de proteínas.</p>
+    <div class="hero">
+        <img src="IMG/portada.jpg" alt="Assorted nuts">
+        <p>Fresh, nutritious and full‑flavored. Discover the NutMix experience.</p>
     </div>
 
-    <div class="producto">
-        <h3>Nueces</h3>
-        <p>Ricas en omega 3, perfectas para cuidar tu salud.</p>
+    <h2 id="products" class="section-title">Our Products</h2>
+
+    <div class="products">
+        <div class="card">
+            <img src="IMG/almendras.jpg" alt="Almonds">
+            <h3>Almonds</h3>
+            <p>Rich in protein, vitamins and healthy fats.</p>
+        </div>
+
+        <div class="card">
+            <img src="IMG/nueces.jpg" alt="Walnuts">
+            <h3>Walnuts</h3>
+            <p>Excellent for brain function and heart protection.</p>
+        </div>
+
+        <div class="card">
+            <img src="IMG/mani.jpg" alt="Peanuts">
+            <h3>Peanuts</h3>
+            <p>A delicious and energizing snack for everyone.</p>
+        </div>
     </div>
 
-    <div class="producto">
-        <h3>Maní Tostado</h3>
-        <p>Crocante, sabroso y perfecto para compartir.</p>
-    </div>
-</div>
+    <h2 id="about" class="section-title">About Us</h2>
+    <p>
+        At NutMix, we select the finest nuts to offer premium quality in every package.
+        Our mission is to deliver natural products that combine taste, energy and nutrition.
+    </p>
 
-<div class="contenedor" id="nosotros">
-    <h2>Sobre Nosotros</h2>
-    <p>Somos una pequeña tienda enfocada en ofrecer productos naturales y nutritivos. Creemos en una alimentación sana y accesible.</p>
-</div>
-
-<div class="contenedor" id="contacto">
-    <h2>Contacto</h2>
-    <p>Email: contacto@nutmix.com</p>
-    <p>Teléfono: 099 123 456</p>
+    <h2 id="contact" class="section-title">Contact</h2>
+    <p>Email: contact@nutmix.com</p>
+    <p>Instagram: @nutmixuy</p>
 </div>
 
 <footer>
-    <p>NutMix © 2025 - Proyecto Escolar</p>
+    © 2025 NutMix. All rights reserved.
 </footer>
 
 </body>
